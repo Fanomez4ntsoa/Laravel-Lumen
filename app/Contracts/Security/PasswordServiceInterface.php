@@ -20,5 +20,5 @@ interface PasswordServiceInterface
      * @param string $password
      * @return boolean
      */
-    public function updateToken(string $login, string $password): bool;
+    public function updatePassword(string $login, string $password): bool;
 }
