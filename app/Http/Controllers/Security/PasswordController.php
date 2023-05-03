@@ -45,7 +45,7 @@ class PasswordController extends Controller
                     );
                 }
             }
-        } catch (\Throwable $execption) {
+        } catch (\Throwable $exeption) {
             // Do nothing
         }
         return $this->error(
@@ -84,7 +84,7 @@ class PasswordController extends Controller
                     }
                 }
             }
-        } catch (\Throwable $execption) {
+        } catch (\Throwable $exeption) {
             // Do nothing
             return $this->error(
                 message:__('error.security.password.token_invalid'),

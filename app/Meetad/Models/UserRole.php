@@ -3,7 +3,7 @@
 namespace App\Meetad\Models;
 
 use DateTimeInterface;
-use App\MVola\Models\User;
+use App\Meetad\Models\User;
 
 class UserRole
 {

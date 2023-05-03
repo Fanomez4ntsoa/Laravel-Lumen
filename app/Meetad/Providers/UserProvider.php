@@ -10,9 +10,9 @@ use Illuminate\Contracts\Auth\UserProvider as LaravelUserProvider;
 
 class UserProvider implements LaravelUserProvider
 {
-    public function __construct(protected UserServiceInterface $userService)
-    {
-        //
+    public function __construct(
+        protected UserServiceInterface $userService
+    ) {
     }
 
     /**

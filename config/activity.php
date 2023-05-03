@@ -1,0 +1,3 @@
+<?php
+
+define('ACTIVITY_PASSWORD_RESET', 'REPA');

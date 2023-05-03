@@ -80,11 +80,32 @@ class User implements AuthenticatableContract, AuthorizableContract, JWTSubject
     public DateTimeInterface|null $validTill;
 
     /**
+     * Password token expiration date minimal limit
+     *
+     * @var DateTimeInterface|null
+     */
+    public DateTimeInterface|null $tokenValidFrom;
+
+    /**
+     * Password token expiration date maximal limit
+     *
+     * @var DateTimeInterface|null
+     */
+    public DateTimeInterface|null $tokenValidTill;
+
+    /**
      * Hashed password
      *
      * @var string
      */
     private string $hashedPassword;
+
+    /**
+     * Password Token
+     *
+     * @var string|null
+     */
+    private ?string $passwordToken;
 
     /**
      * Get user full name
@@ -102,6 +123,28 @@ class User implements AuthenticatableContract, AuthorizableContract, JWTSubject
     {
         $this->hashedPassword = $value;
         return $this;
+    }
+
+    /**
+     * Set Password Token
+     *
+     * @param string|null $token
+     * @return self
+     */
+    public function setPasswordToken(?string $token = null): self
+    {
+        $this->passwordToken = $token;
+        return $this;
+    }
+
+    /**
+     * Get Password Token
+     *
+     * @return string|null
+     */
+    public function getPasswordToken(): ?string
+    {
+        return $this->passwordToken;
     }
 
     /**

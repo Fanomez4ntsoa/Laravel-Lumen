@@ -6,9 +6,9 @@ use App\Events\Security\PasswordUpdatedEvent;
 
 class LogPasswordUpdate
 {
-    public function __construct(protected ActivityLoggerInterface $logger)
-    {
-        //
+    public function __construct(
+        protected ActivityLoggerInterface $logger
+    ) {
     }
 
     /**

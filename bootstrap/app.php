@@ -63,6 +63,8 @@ $app->configure('app');
 $app->configure('access');
 $app->configure('auth');
 $app->configure('jwt');
+$app->configure('activity');
+$app->configure('hashing');
 
 /*
 |--------------------------------------------------------------------------
