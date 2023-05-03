@@ -6,7 +6,7 @@ require_once __DIR__.'/../vendor/autoload.php';
     dirname(__DIR__)
 ))->bootstrap();
 
-date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
+date_default_timezone_set(env('APP_TIMEZONE', 'Indian/Antananarivo'));
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +60,9 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('access');
+$app->configure('auth');
+$app->configure('jwt');
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +81,7 @@ $app->middleware([
     ]);
     
 $app->routeMiddleware([
+    'admin' => App\Http\Middleware\AdminMiddleware::class,
     'auth' => App\Http\Middleware\Authenticate::class,
 ]);
 
@@ -92,12 +96,15 @@ $app->routeMiddleware([
 |
 */
 
-$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
-$app->register(Irazasyed\Larasupport\Providers\ArtisanServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(Irazasyed\Larasupport\Providers\ArtisanServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-$app->register(PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class);
-// $app->register(App\Providers\AppServiceProvider::class);
+
+if (env('APP_ENV') === 'local') {
+    $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+}
+// $app->register(PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*
@@ -119,5 +126,7 @@ $app->router->group([
         require __DIR__ . '/../routes/api.php';
     });
 });
+
+require 'helpers.php';
 
 return $app;

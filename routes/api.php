@@ -13,7 +13,6 @@
 |
 */
 
-$router->group(['prefix' => 'on-boarding'], function () use ($router) {
-    $router->post('check', 'AuthController@Check');
-
+$router->group(['prefix' => 'on-boarding'], function ($router) {
+    $router->post('check', 'AuthController@login');
 });

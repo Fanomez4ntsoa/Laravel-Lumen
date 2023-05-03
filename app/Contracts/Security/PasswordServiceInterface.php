@@ -2,10 +2,19 @@
 
 namespace App\Contracts\Security;
 
+use App\Meetad\Models\User;
 interface PasswordServiceInterface
 {
+    // /**
+    //  * Generate password reset token
+    //  *
+    //  * @param User $user
+    //  * @return boolean
+    //  */
+    // public function generatePasswordResetToken(User $user): bool;
+    
     /**
-     * Verify validation token
+     * Verify token validity
      *
      * @param string $login
      * @param string $token

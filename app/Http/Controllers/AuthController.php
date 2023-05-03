@@ -14,6 +14,6 @@ class AuthController extends Controller
 
     public function login()
     {
-        // Do nothing
+        return true;
     }
 }

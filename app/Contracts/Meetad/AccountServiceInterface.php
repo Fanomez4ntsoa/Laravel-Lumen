@@ -3,8 +3,12 @@ namespace App\Contracts\Meetad;
 
 interface AccountServiceInterface
 {
-    public function isCertified(string $accountId): bool|null;
-
+    /**
+     * Determine user profile
+     *
+     * @param string $msisdn
+     * @return string|null
+     */
     public function getProfile(string $accountId): ?string;
     
 }

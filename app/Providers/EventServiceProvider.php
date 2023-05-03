@@ -15,6 +15,15 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\ExampleEvent::class => [
             \App\Listeners\ExampleListener::class,
         ],
+        \App\Events\Security\PasswordUpdatedEvent::class => [
+            \App\Listeners\Security\LogPasswordUpdate::class,
+        ],
+        \App\Events\UserSignedUpEvent::class => [
+          
+        ],
+        \App\Events\GroupSignedUpEvent::class => [
+            
+        ],
     ];
 
     /**
