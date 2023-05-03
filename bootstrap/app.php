@@ -83,7 +83,7 @@ $app->middleware([
     ]);
     
 $app->routeMiddleware([
-    'admin' => App\Http\Middleware\AdminMiddleware::class,
+    // 'admin' => App\Http\Middleware\AdminMiddleware::class,
     'auth' => App\Http\Middleware\Authenticate::class,
 ]);
 

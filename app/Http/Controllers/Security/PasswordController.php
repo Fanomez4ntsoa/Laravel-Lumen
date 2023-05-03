@@ -22,11 +22,12 @@ class PasswordController extends Controller
      * @return JsonResponse
      */
     public function decodeToken(Request $request): JsonResponse
-    {
+    {   
         $validator = Validator::make($request->all(), [
             'token' => 'required|string'
         ]);
-
+        // dd($validator);
+        
         if($validator->fails()) {
             return $this->error(
                 message:__('error.validations'), 

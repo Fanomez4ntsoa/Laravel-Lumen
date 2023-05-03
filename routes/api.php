@@ -16,3 +16,9 @@
 $router->group(['prefix' => 'on-boarding'], function ($router) {
     $router->post('check', 'AuthController@login');
 });
+
+
+$router->group(['prefix' => 'security', 'namespace' => 'Security'], function ($router) {
+    $router->post('password/decode-token', 'PasswordController@decodeToken');
+    $router->post('password/update', 'PasswordController@update');
+});
